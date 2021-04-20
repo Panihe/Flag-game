@@ -35,30 +35,37 @@ correctOption = () => {
     btnSpain.style.backgroundColor = "#4cae4c";
     btnSpain.style.color = "#ffffff";
     showBtnNext();
+    btnMacedoniaDisabled();
+    btnKirguizistanaDisabled();
+    btnVietnamDisabled();
 }
 
 mistakeOption1 = () => {
-    if (btnMacedonia.click) {
-        changeColorBtnMacedonia();
-        correctOption();
-        showBtnNext();
-    }
+    changeColorBtnMacedonia();
+    correctOption();
+    showBtnNext();
+    btnKirguizistanaDisabled();
+    btnVietnamDisabled();
+    /* element.style.WebkitAnimation = "shake .5s";
+    element.style.animation = "shake .5s"; */
 }
 
+
 mistakeOption2 = () => {
-    if(btnKirguizistan.click) {
-        changeColorBtnKirguizistan();
-        correctOption();
-        showBtnNext();
-    }
+    changeColorBtnKirguizistan();
+    correctOption();
+    showBtnNext();
+    btnMacedoniaDisabled();
+    btnVietnamDisabled();
 }
 
 mistakeOption3 = () => {
-    if(btnVietnam.click) {
-        changeColorBtnVietnam();
-        correctOption();
-        showBtnNext();
-    }
+    changeColorBtnVietnam();
+    correctOption();
+    showBtnNext();
+    btnMacedoniaDisabled();
+    btnKirguizistanaDisabled();
+
 }
 
 showBtnNext = () => {
@@ -86,10 +93,35 @@ continued = () => {
     }
 }
 
+btnMacedoniaDisabled = () => {
+    btnMacedonia.disabled = true;
+    btnMacedonia.setAttribute('id', 'disabled-btn-M');
+    const disabledBtnMSltyle = document.getElementById('disabled-btn-M');
+    disabledBtnMSltyle.style.background = '#ffffff';
+    disabledBtnMSltyle.style.cursor = "none";
+}
+
+btnKirguizistanaDisabled = () => {
+    btnKirguizistan.disabled = true;
+    btnKirguizistan.setAttribute('id', 'disabled-btn-K');
+    const disabledBtnKSltyle = document.getElementById('disabled-btn-K');
+    disabledBtnKSltyle.style.background = '#ffffff';
+    disabledBtnKSltyle.style.cursor = "none";
+}
+
+btnVietnamDisabled = () => {
+    btnVietnam.disabled = true;
+    btnVietnam.setAttribute('id', 'disabled-btn-V');
+    const disabledBtnVSltyle = document.getElementById('disabled-btn-V');
+    disabledBtnVSltyle.style.background = '#ffffff';
+    disabledBtnVSltyle.style.cursor = "none";
+}
+
+
 countPoints = () => {
     let point = 0;
-    for(point = 0; point < correctOption() ; point++) {
-        
+    for (point = 0; point < correctOption(); point++) {
+
     }
 }
 
