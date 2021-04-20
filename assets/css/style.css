@@ -10,7 +10,7 @@ body {
 #mainbox, #mainbox2 {
     width: 35%;
     height: 562.5px;
-    padding: 45px 0px;
+    padding: 35px 0px;
     background-color: #5D6D7E;
     zoom: 1.25;
     margin: auto;
@@ -76,6 +76,7 @@ button:hover {
     opacity: 0.9;
     color: #212121;
 }
+
 /* 
 #error {
     display: none;
