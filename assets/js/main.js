@@ -19,9 +19,6 @@ btnVietnam.addEventListener('click', () => mistakeOption3());
 changeBtnMacedonia = () => {
     btnMacedonia.style.backgroundColor = "#c9302c";
     btnMacedonia.style.color = "#ffffff";
-    btnMacedonia.style.cursor = "none";
-    btnMacedonia.style.WebkitAnimation = "shake .5s";
-    btnMacedonia.style.animation = "shake .5s";
 }
 
 changeBtnKirguizistan = () => {
@@ -35,43 +32,96 @@ changeBtnVietnam = () => {
 }
 
 correctOption = () => {
+    btnMacedoniaDisabled();
+    btnKirguizistanaDisabled();
+    btnVietnamDisabled();
     btnSpain.style.backgroundColor = "#4cae4c";
     btnSpain.style.color = "#ffffff";
     btnSpain.style.cursor = "none";
-    btnMacedonia.disabled = true;
-    btnMacedonia.style.cursor = "none";
-    btnKirguizistan.disabled = true;
-    btnKirguizistan.style.cursor = "none";
-    btnVietnam.disabled = true;
-    btnVietnam.style.cursor = "none";
     showBtnNext();
+    countPoints();
 }
 
 mistakeOption1 = () => {
-    changeBtnMacedonia();
-    correctOption();
-    showBtnNext();
     btnKirguizistanaDisabled();
     btnVietnamDisabled();
-    mistakeOption1();
-}
-  
-mistakeOption2 = () => {
-    changeBtnKirguizistan();
-    correctOption();
+    btnSpainDisabled();
+    correctOption(); 
     showBtnNext();
+    changeBtnMacedonia();
+}
+
+mistakeOption2 = () => {
     btnMacedoniaDisabled();
     btnVietnamDisabled();
-    btnKirguizistan.style.cursor = "none";
+    btnSpainDisabled();
+    correctOption();
+    showBtnNext();
+    changeBtnKirguizistan();
 }
 
 mistakeOption3 = () => {
-    changeBtnVietnam();
-    correctOption();
-    showBtnNext();
     btnMacedoniaDisabled();
     btnKirguizistanaDisabled();
-    btnVietnam.style.cursor = "none";
+    btnSpainDisabled();
+    correctOption();
+    showBtnNext();
+    changeBtnVietnam();
+}
+
+btnMacedoniaDisabled = () => {
+    btnMacedonia.disabled = true;
+    btnMacedonia.setAttribute('id', 'disabled-btn-M');
+    const disabledBtnMSltyle = document.getElementById('disabled-btn-M');
+    disabledBtnMSltyle.style.background = '#ffffff';
+    disabledBtnMSltyle.style.cursor = "none";
+}
+
+btnKirguizistanaDisabled = () => {
+    btnKirguizistan.disabled = true;
+    btnKirguizistan.setAttribute('id', 'disabled-btn-K');
+    const disabledBtnKSltyle = document.getElementById('disabled-btn-K');
+    disabledBtnKSltyle.style.background = '#ffffff';
+    disabledBtnKSltyle.style.cursor = "none";
+}
+
+btnSpainDisabled = () => {
+    btnSpain.disabled = true;
+    btnSpain.setAttribute('id', 'disabled-btn-S');
+    const disabledBtnSSltyle = document.getElementById('disabled-btn-S');
+    disabledBtnSSltyle.style.background = '#4cae4c';
+    disabledBtnSSltyle.style.cursor = "none";
+}
+
+btnVietnamDisabled = () => {
+    btnVietnam.disabled = true;
+    btnVietnam.setAttribute('id', 'disabled-btn-V');
+    const disabledBtnVSltyle = document.getElementById('disabled-btn-V');
+    disabledBtnVSltyle.style.background = '#ffffff';
+    disabledBtnVSltyle.style.cursor = "none";
+}
+
+
+countPoints = () => {
+    let score = 1;
+    let sumscore = score++;
+    const scorePoints = document.getElementById('score-points');
+    const markerPoints = document.getElementById('marker-points');
+    scorePoints.innerHTML = "Puntos: " + sumscore;
+    markerPoints.innerHTML = sumscore + "/197";
+
+}
+
+shakeEffect = () => {
+    btnMacedonia.animate([
+        // keyframes
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-300px)' }
+    ], {
+        // timing options
+        duration: 1000,
+        iterations: Infinity
+    });
 }
 
 showBtnNext = () => {
@@ -97,49 +147,5 @@ continued = () => {
             i++;
             break;
     }
-}
-
-btnMacedoniaDisabled = () => {
-    btnMacedonia.disabled = true;
-    btnMacedonia.setAttribute('id', 'disabled-btn-M');
-    const disabledBtnMSltyle = document.getElementById('disabled-btn-M');
-    disabledBtnMSltyle.style.background = '#ffffff';
-    disabledBtnMSltyle.style.cursor = "none";
-}
-
-btnKirguizistanaDisabled = () => {
-    btnKirguizistan.disabled = true;
-    btnKirguizistan.setAttribute('id', 'disabled-btn-K');
-    const disabledBtnKSltyle = document.getElementById('disabled-btn-K');
-    disabledBtnKSltyle.style.background = '#ffffff';
-    disabledBtnKSltyle.style.cursor = "none";
-}
-
-btnVietnamDisabled = () => {
-    btnVietnam.disabled = true;
-    btnVietnam.setAttribute('id', 'disabled-btn-V');
-    const disabledBtnVSltyle = document.getElementById('disabled-btn-V');
-    disabledBtnVSltyle.style.background = '#ffffff';
-    disabledBtnVSltyle.style.cursor = "none";
-}
-
-
-countPoints = () => {
-    let point = 0;
-    for (point = 0; point < correctOption(); point++) {
-
-    }
-}
-
-shakeEffect = () => {
-    btnMacedonia.animate([
-        // keyframes
-        { transform: 'translateY(0px)' },
-        { transform: 'translateY(-300px)' }
-      ], {
-        // timing options
-        duration: 1000,
-        iterations: Infinity
-      });
 }
 
