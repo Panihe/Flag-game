@@ -16,17 +16,20 @@ btnSpain.addEventListener('click', () => correctOption());
 btnVietnam.addEventListener('click', () => mistakeOption3());
 
 
-changeColorBtnMacedonia = () => {
+changeBtnMacedonia = () => {
     btnMacedonia.style.backgroundColor = "#c9302c";
     btnMacedonia.style.color = "#ffffff";
+    btnMacedonia.style.cursor = "none";
+    btnMacedonia.style.WebkitAnimation = "shake .5s";
+    btnMacedonia.style.animation = "shake .5s";
 }
 
-changeColorBtnKirguizistan = () => {
+changeBtnKirguizistan = () => {
     btnKirguizistan.style.backgroundColor = "#c9302c";
     btnKirguizistan.style.color = "#ffffff";
 }
 
-changeColorBtnVietnam = () => {
+changeBtnVietnam = () => {
     btnVietnam.style.backgroundColor = "#c9302c";
     btnVietnam.style.color = "#ffffff";
 }
@@ -34,38 +37,41 @@ changeColorBtnVietnam = () => {
 correctOption = () => {
     btnSpain.style.backgroundColor = "#4cae4c";
     btnSpain.style.color = "#ffffff";
+    btnSpain.style.cursor = "none";
+    btnMacedonia.disabled = true;
+    btnMacedonia.style.cursor = "none";
+    btnKirguizistan.disabled = true;
+    btnKirguizistan.style.cursor = "none";
+    btnVietnam.disabled = true;
+    btnVietnam.style.cursor = "none";
     showBtnNext();
-    btnMacedoniaDisabled();
-    btnKirguizistanaDisabled();
-    btnVietnamDisabled();
 }
 
 mistakeOption1 = () => {
-    changeColorBtnMacedonia();
+    changeBtnMacedonia();
     correctOption();
     showBtnNext();
     btnKirguizistanaDisabled();
     btnVietnamDisabled();
-    /* element.style.WebkitAnimation = "shake .5s";
-    element.style.animation = "shake .5s"; */
+    mistakeOption1();
 }
-
-
+  
 mistakeOption2 = () => {
-    changeColorBtnKirguizistan();
+    changeBtnKirguizistan();
     correctOption();
     showBtnNext();
     btnMacedoniaDisabled();
     btnVietnamDisabled();
+    btnKirguizistan.style.cursor = "none";
 }
 
 mistakeOption3 = () => {
-    changeColorBtnVietnam();
+    changeBtnVietnam();
     correctOption();
     showBtnNext();
     btnMacedoniaDisabled();
     btnKirguizistanaDisabled();
-
+    btnVietnam.style.cursor = "none";
 }
 
 showBtnNext = () => {
@@ -123,5 +129,17 @@ countPoints = () => {
     for (point = 0; point < correctOption(); point++) {
 
     }
+}
+
+shakeEffect = () => {
+    btnMacedonia.animate([
+        // keyframes
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-300px)' }
+      ], {
+        // timing options
+        duration: 1000,
+        iterations: Infinity
+      });
 }
 
